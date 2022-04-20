@@ -7,6 +7,7 @@
 // }
 
 // converted to decorator factory
+// can now pass in values to decorator
 
 function Logger(logString: string) {
     return function (constructor: Function)
