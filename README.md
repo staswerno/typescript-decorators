@@ -8,3 +8,6 @@
 - target es6
 - uncomment experimentalDecorators
 
+### notes
+
+Multiple decorators run bottom up

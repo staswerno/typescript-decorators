@@ -1,4 +1,4 @@
-// a decorator is ultimately a function 
+// a decorator is ultimately a function
 // applied to something, eg a class
 
 // function Logger(constructor: Function) {
@@ -10,39 +10,39 @@
 // can now pass in values to decorator
 
 function Logger(logString: string) {
-    return function (constructor: Function)
-  {  console.log(logString);
-    console.log(constructor);
+	return function (constructor: Function) {
+		console.log(logString);
+		console.log(constructor);
+	};
 }
-}
-
 
 // _ tells TS 'I'm aware it's there but i don't want to use it'
 
 function WithTemplate(template: string, hookId: string) {
-    return function(constructor: any) {
-        const hookEl = document.getElementById(hookId);
-        const p = new constructor();
-        if (hookEl) {
-            hookEl.innerHTML = template;
-            hookEl.querySelector('h1')!.textContent = p.name;
-        }
-    }
+	return function (constructor: any) {
+		console.log("Rendering template");
+		const hookEl = document.getElementById(hookId);
+		const p = new constructor();
+		if (hookEl) {
+			hookEl.innerHTML = template;
+			hookEl.querySelector("h1")!.textContent = p.name;
+		}
+	};
 }
 
 // @ points at, not excecutes, decorator
-// decorators excecute when class is defined NOT instantiated
+// decorators excecute when class is defined NOT insdtantiated
 // called using factory
 
 // @Logger
-// @Logger('LOGGING - PERSON')
-@WithTemplate('<h1>My Person Object</h1>', 'app')
+@Logger("LOGGING - PERSON")
+@WithTemplate("<h1>My Person Object</h1>", "app")
 class Person {
-    name = 'Stasi';
+	name = "Stasi";
 
-    constructor() {
-        console.log('Creating person object...');
-    }
+	constructor() {
+		console.log("Creating person object...");
+	}
 }
 
 const pers = new Person();
