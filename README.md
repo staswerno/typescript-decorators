@@ -12,3 +12,4 @@
 ### notes
 
 Multiple decorators run bottom up
+Can return from decorators added to methods or accessors
